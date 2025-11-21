@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" >
+  <title>Styled Form Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f9fc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 80px;
+    }
+
+    .radio-group,
+    .checkbox-group {
+      margin-top: 10px;
+    }
+
+    .radio-group input,
+    .checkbox-group input {
+      margin-right: 5px;
+    }
+
+    .button-group {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .submit-btn {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .clear-btn {
+      background-color: #f44336;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container" id="1234">
+  <h2>Registration Form</h2>
+  <form id="registrationForm">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="surname">Surname</label>
+    <input type="text" id="surname" name="surname"  required>
+
+    <label>Gender</label>
+    <div class="radio-group">
+      <input type="radio" id="male" name="gender" value="male" required>
+      <label for="male" style="display: inline;">Male</label>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female" style="display: inline;">Female</label>
+    </div>
+
+    <label for="address">Address</label>
+    <textarea id="address" name="address" class="addrress-class" required></textarea>
+
+    <label for="dob">Date of Birth</label>
+    <input type="date" id="dob" name="dob" required>
+
+    <label for="country">Country</label>
+    <select id="country" name="country" required>
+      <option value="">Select Country</option>
+      <option value="USA">United States</option>
+      <option value="UK">United Kingdom</option>
+      <option value="India">India</option>
+      <option value="Germany">Germany</option>
+    </select>
+
+    <div class="checkbox-group">
+        <input type="checkbox" id="agree" name="agree" required>
+        <label for="agree" style="display: inline;">
+          I agree to the <a href="https://policies.google.com/terms?hl=en-IN&fg=1" target="_blank">terms and conditions</a>
+        </label>
+    </div>
+
+    <div class="button-group">
+      <button type="reset" class="clear-btn">Clear</button>
+      <button type="submit" class="submit-btn">Submit</button>
+    </div>
+  </form>
+</div>
+
+</body>
+<script>
+    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // Prevent form from actually submitting
+    
+      const name = document.getElementById("name").value;
+      const surname = document.getElementById("surname").value;
+      const gender = document.querySelector('input[name="gender"]:checked')?.value || "Not selected";
+      const address = document.getElementById("address").value;
+      const dob = document.getElementById("dob").value;
+      const country = document.getElementById("country").value;
+      const agree = document.getElementById("agree").checked ? "Yes" : "No";
+    
+      const message = `
+        Name: ${name}
+        Surname: ${surname}
+        Gender: ${gender}
+        Address: ${address}
+        Date of Birth: ${dob}
+        Country: ${country}
+        Agreed to Terms: ${agree}
+      `;
+    
+      alert(message);
+    });
+    </script>
+    
+</html>
