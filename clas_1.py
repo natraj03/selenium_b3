@@ -72,7 +72,8 @@ def test_local_element_page():
     terms_link = driver.find_element(By.XPATH, "//a")
     terms_link.click()
     time.sleep(2)  # Wait for new tab to open
-
+    # terms_linkList = driver.find_elements(By.XPATH, "//a")
+    # terms_linkList[3].click()
     # 2. Get window handles
     windows = driver.window_handles
     main_window = windows[0]
@@ -126,7 +127,7 @@ def test_window_handle():
 
 def test_alerts():
     driver.get("https://demoqa.com/alerts")
-    driver.implicitly_wait(9)
+    # driver.implicitly_wait(9)
     wait = WebDriverWait(driver, 10)
 
     driver.find_element(By.ID, "promtButton").click()
