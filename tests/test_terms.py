@@ -18,7 +18,7 @@ def teardown_function():
 def test_terrms_page():
     open_flipkart_website(driver, terms_page)
     term_obj = Terms(driver)
-    assert term_obj.open_corporate_page() == "Flipkart Terms of Use"
+    assert term_obj.open_corporate_page() == "Flipkart Terms of Use check"
     # mobile_obj.click_on_apple()
 
 

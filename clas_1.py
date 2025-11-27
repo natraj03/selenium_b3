@@ -151,6 +151,6 @@ def test_flow_page():
     driver.get("https://flipkart.com")
     driver.implicitly_wait(10)
 # '//a[@href="/mobile-phones-store?param=4111&fm=neo%2Fmerchandising&iid=M_3cdd8444-810c-4fef-a0dd-867ce033aced_1_X1NCR146KC29_MC.AH1NTIJZ241Z&cid=AH1NTIJZ241Z"]'
-    driver.find_element(By.XPATH, "//a[contains(@href, '/mobile-phones-store?')]").click()
+    driver.find_element(By.XPATH, "//a[contains(@href, '/mobile-phones-store-newid?')]").click()
 
 
